@@ -2,6 +2,14 @@ import unittest
 from src.palindrome import is_palindrome
 
 class TestPalindrome(unittest.TestCase):
+    def test_simple_palindromes(self):
+        """Prueba palíndromos simples de una sola palabra."""
+        self.assertTrue(is_palindrome("radar"))
+        self.assertTrue(is_palindrome("oso"))
+        self.assertTrue(is_palindrome("reconocer"))
+        self.assertTrue(is_palindrome("somos"))
+        self.assertTrue(is_palindrome("1221"))
+
     def test_phrase_palindromes(self):
         """Prueba palíndromos que son frases completas."""
         self.assertTrue(is_palindrome("Anita lava la tina"))

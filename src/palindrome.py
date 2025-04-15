@@ -1,9 +1,11 @@
+
 import sys
 import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import re
 import unicodedata
+
 
 def is_palindrome(text):
     """
@@ -37,7 +39,7 @@ def is_palindrome(text):
 
 if __name__ == '__main__':
     """
-    Programa interactivo para verificar palíndromos.
+    Programa para verificar palíndromos.
     """
     try:
         while True:
@@ -47,4 +49,5 @@ if __name__ == '__main__':
             else:
                 print(f'"{user_input}" no es un palíndromo')
     except KeyboardInterrupt:
-        print("\nPrograma finalizado.")
+      print("\nPrograma finalizado.")
+

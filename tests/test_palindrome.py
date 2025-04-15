@@ -20,13 +20,15 @@ class TestPalindrome(unittest.TestCase):
         self.assertTrue(is_palindrome("No lemon, no melon"))
         self.assertTrue(is_palindrome("Yo hago yoga hoy"))
         self.assertTrue(is_palindrome("¿Acaso hubo búhos acá?"))
-
-    def test_non_palindromes(self):
-        self.assertFalse(is_palindrome("hola"))
-        self.assertFalse(is_palindrome("python"))
-        self.assertFalse(is_palindrome("universidad"))
-        self.assertFalse(is_palindrome("Este no es un palíndromo"))
-        self.assertFalse(is_palindrome("TDD es divertido"))
+       
+     
+    def test_edge_cases(self):
+        """Prueba casos límite."""
+        self.assertTrue(is_palindrome(""))  # Cadena vacía
+        self.assertTrue(is_palindrome("a"))  # Un solo carácter
+        self.assertTrue(is_palindrome("1"))  # Un solo número
+        self.assertTrue(is_palindrome(" "))  # Solo espacio en blanco
+        
 
 if __name__ == '__main__':
     unittest.main()

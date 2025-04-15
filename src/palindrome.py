@@ -1,3 +1,12 @@
+
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+import re
+import unicodedata
+
+
 def is_palindrome(text):
     """
     Verifica si una cadena de texto es un palíndromo.
@@ -8,9 +17,25 @@ def is_palindrome(text):
     Returns:
         bool: True si es un palíndromo, False en caso contrario
     """
-    # Implementación básica de la estructura de la función
-    # Esta función será completada en otras ramas
-    pass
+    # Si el texto está vacío, es un palíndromo por definición
+    if not text:
+        return True
+    
+    # Normalizar texto: eliminar acentos
+    normalized_text = ''.join(
+        c for c in unicodedata.normalize('NFD', text)
+        if not unicodedata.combining(c)
+    )
+    
+    # Convertir a minúsculas y eliminar caracteres que no sean alfanuméricos
+    clean_text = re.sub(r'[^a-z0-9]', '', normalized_text.lower())
+    
+    # Si después de la limpieza no hay caracteres, es un palíndromo
+    if not clean_text:
+        return True
+    
+    # Comparación final
+    return clean_text == clean_text[::-1]
 
 if __name__ == '__main__':
     """
@@ -24,4 +49,5 @@ if __name__ == '__main__':
             else:
                 print(f'"{user_input}" no es un palíndromo')
     except KeyboardInterrupt:
-        print("\nPrograma finalizado.")
+      print("\nPrograma finalizado.")
+
